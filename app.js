@@ -4,6 +4,33 @@ const port = process.env.PORT || 3001;
 
 app.get("/", (req, res) => res.type('html').send(html));
 
+app.get('/bio', async (req, res) => {
+
+  let user=req.query.user;
+  console.log(user);
+  var axios = require('axios');
+
+
+  var config = {
+    method: 'get',
+    url: `https://api.twitter.com/1.1/users/show.json?screen_name=${user}`,
+    headers: { 
+      'Authorization': 'Bearer AAAAAAAAAAAAAAAAAAAAANKRdgEAAAAAN%2FDazG5nUtnnCU7OYt%2FLwSS72fw%3DgP5tspdHCMC9VSdu9CwXYiiD6NIFyDLsxVaGNq6rDeUvTBWX9j', 
+      'Cookie': 'guest_id=v1%3A165784414559884620; guest_id_ads=v1%3A165784414559884620; guest_id_marketing=v1%3A165784414559884620; personalization_id="v1_dfJetkzUf57znmcUB8nJYw=="'
+    }
+  };
+
+  var tea = axios(config).then(function (response) {
+    res.send({ message: response.data });
+    // res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
+  // res.send({ kapilan: tea });
+});
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
 
