@@ -17,7 +17,7 @@ app.get('/bio', async (req, res) => {
     headers: { 
       'Authorization': 'Bearer AAAAAAAAAAAAAAAAAAAAANKRdgEAAAAAN%2FDazG5nUtnnCU7OYt%2FLwSS72fw%3DgP5tspdHCMC9VSdu9CwXYiiD6NIFyDLsxVaGNq6rDeUvTBWX9j', 
       'Cookie': 'guest_id=v1%3A165784414559884620; guest_id_ads=v1%3A165784414559884620; guest_id_marketing=v1%3A165784414559884620; personalization_id="v1_dfJetkzUf57znmcUB8nJYw=="',
-      'Access-Control-Allow-Origin': 'http://localhost:3000'
+      "Access-Control-Allow-Origin": "*"
 
     }
   };
